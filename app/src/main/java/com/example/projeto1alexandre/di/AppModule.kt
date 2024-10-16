@@ -2,6 +2,7 @@ package com.example.projeto1alexandre.di
 
 import com.example.projeto1alexandre.data.remote.GitHubApi
 import com.example.projeto1alexandre.data.repository.UserRepository
+import com.example.projeto1alexandre.domain.usecase.GetUserDetailsUseCase
 import com.example.projeto1alexandre.domain.usecase.GetUserReposUseCase
 import com.example.projeto1alexandre.domain.usecase.GetUsersUseCase
 import com.example.projeto1alexandre.ui.viewmodel.MainViewModel
@@ -21,6 +22,7 @@ val appModule = module {
     }
     single { UserRepository(get()) }
     factory { GetUsersUseCase(get()) }
+    factory { GetUserDetailsUseCase(get()) }
     factory { GetUserReposUseCase(get()) }
     viewModel { MainViewModel(get()) }
     viewModel { UserViewModel(get(), get()) }

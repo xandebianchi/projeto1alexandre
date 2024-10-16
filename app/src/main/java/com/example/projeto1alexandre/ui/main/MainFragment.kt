@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projeto1alexandre.data.model.User
+import com.example.projeto1alexandre.R
 import com.example.projeto1alexandre.databinding.FragmentMainBinding
 import com.example.projeto1alexandre.ui.BaseFragment
 import com.example.projeto1alexandre.ui.adapter.UserAdapter
@@ -55,7 +57,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private fun FragmentMainBinding.setupRecyclerView() {
         userAdapter = UserAdapter { selectedUser ->
-            navigateToUserDetails(selectedUser)
+            navigateToUserDetails(selectedUser.login)
         }
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -63,8 +65,14 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
     }
 
-    private fun navigateToUserDetails(user: User) {
-        //val action = MainFragmentDirections.actionMainFragmentToUserDetailFragment(user.login)
-        //findNavController().navigate(action)
+    private fun navigateToUserDetails(username: String) {
+        findNavController().navigate(
+            R.id.action_mainFragment_to_userDetailFragment,
+            bundleOf(LOGIN to username)
+        )
+    }
+
+    companion object {
+        const val LOGIN = "username"
     }
 }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Projeto1Alexandre</string>
+    <string name="str_bio">Bio</string>
+    <string name="str_name">Name</string>
+    <string name="str_avatar">Avatar</string>
+    <string name="str_repositories">Repositories</string>
+    <string name="str_aguarde">Aguarde...</string>
 </resources>

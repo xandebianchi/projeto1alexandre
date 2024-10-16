@@ -53,6 +53,8 @@ dependencies {
 
     api(libs.material)
 
+    implementation(libs.coil)
+
     // Retrofit and Networking
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)

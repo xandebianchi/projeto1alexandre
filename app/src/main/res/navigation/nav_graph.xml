@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/userDetailFragment"
-        android:name="com.example.githubusers.ui.details.UserDetailFragment"
+        android:name="com.example.projeto1alexandre.ui.main.UserDetailFragment"
         android:label="User Details"
-        tools:layout="@layout/fragment_user_detail">
+        tools:layout="@layout/fragment_user_details">
         <argument
             android:name="username"
             app:argType="string" />
