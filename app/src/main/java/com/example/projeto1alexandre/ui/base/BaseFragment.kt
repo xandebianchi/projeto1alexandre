@@ -1,4 +1,4 @@
-package com.example.projeto1alexandre.ui
+package com.example.projeto1alexandre.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

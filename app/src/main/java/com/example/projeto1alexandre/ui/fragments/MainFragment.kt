@@ -1,4 +1,4 @@
-package com.example.projeto1alexandre.ui.main
+package com.example.projeto1alexandre.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projeto1alexandre.R
 import com.example.projeto1alexandre.databinding.FragmentMainBinding
-import com.example.projeto1alexandre.ui.BaseFragment
 import com.example.projeto1alexandre.ui.adapter.UserAdapter
+import com.example.projeto1alexandre.ui.base.BaseFragment
 import com.example.projeto1alexandre.ui.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

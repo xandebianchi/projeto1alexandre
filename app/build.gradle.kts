@@ -43,6 +43,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        //noinspection DataBindingWithoutKapt
         dataBinding = true
     }
 }
@@ -73,4 +74,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.core.testing)
 }

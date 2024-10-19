@@ -1,4 +1,4 @@
-package com.example.projeto1alexandre.ui.main
+package com.example.projeto1alexandre.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.projeto1alexandre.data.model.User
 import com.example.projeto1alexandre.databinding.FragmentUserDetailsBinding
-import com.example.projeto1alexandre.ui.BaseFragment
+import com.example.projeto1alexandre.ui.base.BaseFragment
 import com.example.projeto1alexandre.ui.adapter.RepoAdapter
-import com.example.projeto1alexandre.ui.main.MainFragment.Companion.LOGIN
+import com.example.projeto1alexandre.ui.fragments.MainFragment.Companion.LOGIN
 import com.example.projeto1alexandre.ui.viewmodel.UserViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -59,17 +59,17 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailsBinding>() {
     private fun startInitializationsAndCalls() {
         props.login?.let {
             viewModel.getAllData(it)
-        } ?: run {
-            findNavController().navigateUp()
         }
     }
 
     private fun FragmentUserDetailsBinding.setupAguarde() {
         val blinkAnimation = AlphaAnimation(0.0f, 1.0f) // Transparência de 0% a 100%
-        blinkAnimation.duration = 500 // Duração de cada fase do piscar (500ms)
-        blinkAnimation.startOffset = 20 // Intervalo antes de iniciar a animação
-        blinkAnimation.repeatMode = Animation.REVERSE // Inverte para criar o efeito de piscar
-        blinkAnimation.repeatCount = Animation.INFINITE // Repetir infinitamente
+        blinkAnimation.apply {
+            duration = 500 // Duração de cada fase do piscar (500ms)
+            startOffset = 20 // Intervalo antes de iniciar a animação
+            repeatMode = Animation.REVERSE // Inverte para criar o efeito de piscar
+            repeatCount = Animation.INFINITE // Repetir infinitamente
+        }
         txtAguarde.startAnimation(blinkAnimation)
     }
 

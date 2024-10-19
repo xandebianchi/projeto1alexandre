@@ -8,7 +8,6 @@ import com.example.projeto1alexandre.data.model.Repo
 import com.example.projeto1alexandre.data.model.User
 import com.example.projeto1alexandre.domain.usecase.GetUserDetailsUseCase
 import com.example.projeto1alexandre.domain.usecase.GetUserReposUseCase
-import com.example.projeto1alexandre.domain.usecase.GetUsersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -25,8 +24,12 @@ class UserViewModel(
         username: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response1 = async { getUserDetailsUseCase(username) }
-            val response2 = async { getUserReposUseCase(username) }
+            val response1 = async {
+                getUserDetailsUseCase(username)
+            }
+            val response2 = async {
+                getUserReposUseCase(username)
+            }
 
             awaitAll(response1, response2)
 
@@ -41,25 +44,4 @@ class UserViewModel(
             )
         }
     }
-
-
-   /* private val _userDetail = MutableLiveData<User>()
-    val userDetail: LiveData<User> = _userDetail
-
-    private val _repos = MutableLiveData<List<Repo>>()
-    val repos: LiveData<List<Repo>> = _repos
-
-    fun getUserDetail(username: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = getUserDetailsUseCase(username)
-            _userDetail.postValue(response)
-        }
-    }
-
-    fun getUsersRepos(username: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = getUserReposUseCase(username)
-            _repos.postValue(response)
-        }
-    }*/
 }
